@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animating SVGs</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alice&family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <main>
+        <h1>Animating SVGs</h1>
+        <p><em>This is a breakdown and update of the</em> <a href="https://codepen.io/leimapapa/pen/VwXYGpv">3D Print My
+                Heart ❤️</a> CodePen by <a href="https://codepen.io/leimapapa">leimapapa</a>.</p>
+
+        <article>
+            <h2>The SVG container</h2>
+            <p>The "container" of the animated SVG is formed by adding a border around an SVG element. The original
+                CodePen uses old-school centering, so I updated it with flexbox (see the CSS).</p>
+            <p class="codepen" data-height="400" data-default-tab="css,result" data-slug-hash="JjZeYGV"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/JjZeYGV">
+                        svg - part 1</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+        <article>
+            <h2>Nozzle SVG</h2>
+            <p>Next, they add a path with a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d"
+                    target="_blank">path d (draw) attribute</a> for a trapezoid. I don't know what that part of a
+                printer is called, so I gave it a class of "nozzle" so you could find it in the SVG. I adjusted the SVG
+                values so they were relative (the example used absolute coordinates). With relative coordinates,
+                you can move it around by just changing the first M coordinates <a
+                    href="https://svg-path-visualizer.netlify.app/#M%200%2C%200%20h%2010%20l%20-4%2010%20h%20-2%20Z"
+                    target="_blank">View the visualization of it.</a> </p>
+
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="mdKQePV"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/mdKQePV">
+                        svg - part 2</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+        <article>
+            <h2>Box SVG</h2>
+            <p>Next, they add a square, which I gave class "box". Again, I adjusted the SVG values so they were
+                relative. <a href="https://svg-path-visualizer.netlify.app/#M%200%200%20h%2026%20v%2017%20h%20-26%20Z"
+                    target="_blank">View the visualization of it.</a> </p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="jOKQbaz"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/jOKQbaz">
+                        svg - part 3</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+        <article>
+            <h2>Carriage SVG</h2>
+            <p>Next, they add bar and a square (the same size as the box). I gave it the class "carriage". Again, I
+                adjusted the SVG values so they were relative. I also simplified the drawing. The carriage covers the
+                box entirely. <a
+                    href="https://svg-path-visualizer.netlify.app/#M%200%200%20h%20240%20v%208%20h%20-107%20v%2017%20h%20-26%20v%20-17%20h%20-107%20z"
+                    target="_blank">View the visualization of it.</a> </p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="QWxJjmm"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/QWxJjmm">
+                        svg - part 4</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+        <article>
+            <h2>Adding the animation with &lt;animateMotion&gt;</h2>
+            <p>They use an animation path to move the nozzle. (See <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateMotion"
+                    target="_blank">&lt;animateMotion&gt;</a> to learn more &ndash; I've never used this before but it's
+                cool to know about.) I converted the path to relative coordinates. I also changed the nozzle location
+                (the first M coordinates) <a
+                    href="https://svg-path-visualizer.netlify.app/#M%200%2C0%20h%206%20v%20-2%20h%20-8%20v%20-2%20h%2012%20v%20-2%20h%20-16%20v%20-2%20h%2020%20v-2%20h%20-24%20v%20-2%20h%2028%20v%20-2%20h%20-32%20v%20-2%20h%2036%20v%20-2%20h%20-40%20v%20-2%20h%2044%20v%20-2%20h%20-48%20v%20-2%20h%2052%20v%20-2%20h%20-56%20v%20-2%20h%2060%20v%20-2%20h%20-64%20v%20-2%20h%2068%20v-2%20h%20-72%20v-2%20h%2076%20v%20-2%20h%20-79%20v%20-2%20h%2081%20v%20-2%20h%20-83%20v%20-2%20h%2085%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-85%20v%20-2%20h%2083%20v%20-2%20h%20-81%20v%20-2%20h%2079%20v%20-2%20h%20-76%20v%20-2%20h%2072%20v%20-2%20h%20-68%20v%20-2%20h%2062%20v%20-2%20h%20-58"
+                    target="_blank">Here's the path - you can see it's the heart shape.</a>. Read through the breakdown
+                of the path on the visualizer site. Notice the v and h in the path. v is relative vertical movement. The
+                nozzle moves -2 coordinates up each time it moves horizontally (h). </p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="oNyQjPj"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/oNyQjPj">
+                        svg - part 5 animation</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+
+        <article>
+            <h2>More &lt;animateMotion&gt; </h2>
+            <p>The carriage uses the exact same animation path as the nozzle (so does the box, but it's always hidden).
+                I adjusted the first M coordinates of the carriage so it is on top of the nozzle and gave it the same <a
+                    href="https://svg-path-visualizer.netlify.app/#M%200%2C0%20h%206%20v%20-2%20h%20-8%20v%20-2%20h%2012%20v%20-2%20h%20-16%20v%20-2%20h%2020%20v-2%20h%20-24%20v%20-2%20h%2028%20v%20-2%20h%20-32%20v%20-2%20h%2036%20v%20-2%20h%20-40%20v%20-2%20h%2044%20v%20-2%20h%20-48%20v%20-2%20h%2052%20v%20-2%20h%20-56%20v%20-2%20h%2060%20v%20-2%20h%20-64%20v%20-2%20h%2068%20v-2%20h%20-72%20v-2%20h%2076%20v%20-2%20h%20-79%20v%20-2%20h%2081%20v%20-2%20h%20-83%20v%20-2%20h%2085%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-86%20v%20-2%20h%2086%20v%20-2%20h%20-85%20v%20-2%20h%2083%20v%20-2%20h%20-81%20v%20-2%20h%2079%20v%20-2%20h%20-76%20v%20-2%20h%2072%20v%20-2%20h%20-68%20v%20-2%20h%2062%20v%20-2%20h%20-58"
+                    target="_blank">animation path</a>. Parts of the carriage that move outside the viewbox are cropped.
+            </p>
+            <p>The box was hidden because it came before the carriage in the markup, so the carriage was rendered on top
+                of it. I moved the box below the carriage and added
+                the animation to the box and adjusted its start position. If you uncomment out the box, you'll see it
+                working. </p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="PoaxPXK"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/PoaxPXK">
+                        svg - part 6 animation</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+        <article>
+            <h2>Animation with stroke-dasharry and stroke-dashoffset</h2>
+            <p> The CSS animation is similar to this pen I demo'd in class. You could move the anmiation into the CSS,
+                or keep it
+                how it is (scroll down to see the "Continuous" animation example.</p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="ExLRQoE"
+                data-user="lsburton"
+                style="height:400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/ExLRQoE">
+                        animated svg</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <p> I added the "heart" which I gave class "object". I positioned the heart to start with
+                the nozzle. The heart path is the exact same path used for the motion. It's animated with
+                stroke-dasharry and stroke-dashoffset instead of &lt;animateMotion&gt; </p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="BaVGoeY"
+                data-user="lsburton"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/BaVGoeY">
+                        svg - part 7 stroke-dash stuff</a> by Lara Burton (<a
+                        href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+        </article>
+
+        <article>
+            <h2>clip-path</h2>
+            <p>To clean up the outline of the heart, you can use a <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path" target="_blank">clip-path</a>.
+                They work the same in CSS as they do with SVGs. I added one to the SVG in the SVG
+                <code>&lt;defs&gt;</code> section with <code>id="clip-path"</code> and then loaded it in the path tag
+                using <code>url()</code>. I converted the path to relative coordinates. <a
+                    href="https://svg-path-visualizer.netlify.app/#M%2093%2C75%20l%20-35%2C35%20l%20-35%2C-35%20a%2025%2C25%2C90%2C0%2C1%2C35%2C-36%20a%2025%2C25%2C90%2C0%2C1%2C35%2C36%20z"
+                    target="_blank">Here it is</a>
+            </p>
+            <p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="OJEaMPQ"
+                data-user="lsburton"
+                style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/lsburton/pen/OJEaMPQ">
+                        svg - part 8 clip-path</a> by Lara Burton (<a href="https://codepen.io/lsburton">@lsburton</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </article>
+
+
+    </main>
+    <aside>
+        <p> <span class="large">tl;dr</span> - If you can come up with an SVG for an object that has an SVG path like
+            this:
+        </p>
+        <img src="images/heart.png" alt="winding SVG path forming a heart">
+
+        <p>You can make this work.</p>
+    </aside>
+</body>
+
+</html>

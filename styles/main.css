@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+main {
+  max-width: 60rem;
+}
+
+aside,
+article {
+  margin-bottom: 6rem;
+}
+
+.large {
+  font-size: 4rem;
+  font-weight: bold;
+}
